@@ -2,69 +2,37 @@
 
 ##  🔧 Project Stack
 
-### Colección: organizaciones
 
-```javascript
-{
-  "_id": ObjectId(),
-  "nombre": "JASS Central",
-  "direccion": "Av. Principal 123",
-  "telefono": "987654321",
-  "representante_legal": "Juan Pérez",
-  "fecha_creacion": ISODate("2020-01-01"),
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01")
-}
+```
+Backend: Java 17 (IntelliJ IDEA, Spring Boot)
+Frontend: Angular (latest stable version)
+Database: MongoDB and PostgreSQL
 ```
 
-### Colección: sedes
+###  Project Purpose
 
-```javascript
-{
-  "_id": ObjectId(),
-  "organizacion_id": ObjectId(),
-  "nombre": "Sede Rinconada de Conta - Bellavista de Conta",
-  "direccion": "Calle Principal, Rinconada",
-  "telefono": "912345678",
-  "email": "sede@jass.org",
-  "encargado": "Pedro Gómez",
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01")
-}
+```
+The PRS project aims to manage everything related to water boxes, user payments, and inventory, in order to better manage the JASS.
+
 ```
 
-## 2. MS-USUARIOS (ISAEL FATAMA)
+## 🛠️ Setup Instructions (Imperatives)
 
-### Colección: usuarios
 
-```javascript
-{
-  "_id": ObjectId(),
-  "sede_id": ObjectId(),
-  "tipo_documento": "DNI",
-  "numero_documento": "45678912",
-  "nombres": "María",
-  "apellidos": "López García",
-  "telefono": "912345678",
-  "email": "maria@example.com",
-  "direccion": {
-    "detalle": "Jr. Las Flores 123",
-    "localidad_id": ObjectId(),
-    "localidad_nombre": "Bellavista de Conta",
-    "calle_id": ObjectId(),
-    "calle_nombre": "Jr. Las Flores"
-  },
-  "rol": "CLIENTE",
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-15"),
-  "cajas": [
-    {
-      "caja_id": ObjectId(),
-      "codigo": "CAJ001",
-      "tipo": "CAÑO"
-    }
-  ]
-}
+
+```
+Clone the repository:
+git clone https://github.com/YourOrg/cetpro-social-project.git
+Navigate into backend:
+cd cetpro-social-project/backend
+Run Spring Boot app:
+./mvnw spring-boot:run
+Navigate into frontend:
+cd ../frontend
+Install dependencies and serve the Angular app:
+npm install
+ng serve
+
 ```
 
 ## 3. MS-CAJAS (FRANK SALAZAR - DEYTON GARCIA - SANTIAGO PRADA)
