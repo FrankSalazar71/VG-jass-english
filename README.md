@@ -20,11 +20,11 @@ The PRS project aims to manage everything related to water boxes, user payments,
 
 
 
-``
+```
 Clone the repository:
-git clone https://github.com/YourOrg/cetpro-social-project.git
+https://github.com/FrankSalazar71/Cajamicroservice.git
 Navigate into backend:
-cd cetpro-social-project/backend
+cd JASS/infraestrcutura-project/backend
 Run Spring Boot app:
 ./mvnw spring-boot:run
 Navigate into frontend:
@@ -33,48 +33,33 @@ Install dependencies and serve the Angular app:
 npm install
 ng serve
 
-``
-
-## 3. MS-CAJAS (FRANK SALAZAR - DEYTON GARCIA - SANTIAGO PRADA)
-
-### Colección: cajas
-
-```javascript
-{
-  "_id": ObjectId(),
-  "codigo": "CAJ001",
-  "tipo": "CAÑO",
-  "fecha_instalacion": ISODate("2025-02-15"),
-  "estado": "ACTIVO",
-  "observaciones": "Instalación estándar",
-  "fecha_registro": ISODate("2025-02-15")
-}
 ```
 
-### Colección: asignacion_cajas
+## 🧩 How to Use the App (Advice with “should”)
 
-```javascript
-{
-  "_id": ObjectId(),
-  "caja_id": ObjectId(),
-  "usuario_id": ObjectId(),
-  "fecha_asignacion": ISODate("2025-02-15"),
-  "estado": true,
-  "observaciones": "Asignación inicial",
-  "fecha_registro": ISODate("2025-02-15"),
-  "usuario_datos": {
-    "nombre_completo": "María López García",
-    "documento": "45678912",
-    "direccion": "Jr. Las Flores 123, Bellavista de Conta"
-  },
-  "caja_datos": {
-    "codigo": "CAJ001",
-    "tipo": "CAÑO"
-  }
-}
+
+
+```
+- You must open http://localhost:4200 after both the backend and frontend are running.
+
+- You must be logged in to access the app.
+
+- You must add and assign user water dispensers, then transfer a water dispenser to another user.
 ```
 
-## 4. MS-PAGOS (JOHAN MALASQUEZ - RONALDINHO CCENCHO)
+### 📁 Repository Structure
+
+```
+/cetpro-social-project
+├── backend/        # Java 17 + SpringBoot 3 Reactivo REST API
+├── frontend/       # Angular 19 app + Tailwind v4
+├── README.md       # ← information
+├── CONTRIBUTING.md # Contribution guidelines
+├── .env.example    # Environment variables template
+└── docs/           # Project documentation & diagrams
+```
+
+## 🧑‍🏫 Contributing (Imperatives & Advice)
 
 ### Colección: pagos
 
