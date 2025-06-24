@@ -1,6 +1,6 @@
-# Estructura de Base de Datos MongoDB para Sistema JASS (Microservicios)
+# PRS1: JASS 
 
-## 1. MS-ORGANIZACIONES (MILENKA MUÑOZ)
+##  🔧 Project Stack
 
 ### Colección: organizaciones
 
