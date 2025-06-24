@@ -20,7 +20,7 @@ The PRS project aims to manage everything related to water boxes, user payments,
 
 
 
-```
+``
 Clone the repository:
 git clone https://github.com/YourOrg/cetpro-social-project.git
 Navigate into backend:
@@ -33,7 +33,7 @@ Install dependencies and serve the Angular app:
 npm install
 ng serve
 
-```
+``
 
 ## 3. MS-CAJAS (FRANK SALAZAR - DEYTON GARCIA - SANTIAGO PRADA)
 
