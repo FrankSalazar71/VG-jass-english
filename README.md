@@ -3,11 +3,11 @@
 ##  🔧 Project Stack
 
 
-```
+
 Backend: Java 17 (IntelliJ IDEA, Spring Boot)
 Frontend: Angular (latest stable version)
 Database: MongoDB and PostgreSQL
-```
+
 
 ###  Project Purpose
 
