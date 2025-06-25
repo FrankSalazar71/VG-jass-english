@@ -61,280 +61,89 @@ ng serve
 
 ## 🧑‍🏫 Contributing (Imperatives & Advice)
 
-### Colección: pagos
 
-```javascript
-{
-  "_id": ObjectId(),
-  "usuario_id": ObjectId(),
-  "monto": 10.00,
-  "fecha_pago": ISODate("2025-03-15"),
-  "mes_servicio": "2025-03",
-  "tipo_pago": "REGULAR",
-  "metodo_pago": "EFECTIVO",
-  "comprobante": "BOLETA",
-  "numero_comprobante": "B001-00001",
-  "estado": "PAGADO",
-  "usuario_receptor_id": ObjectId(),
-  "observaciones": "Pago mensual servicio de agua",
-  "fecha_registro": ISODate("2025-03-15"),
-  "usuario_datos": {
-    "nombre_completo": "María López García",
-    "documento": "45678912",
-    "direccion": "Jr. Las Flores 123, Bellavista de Conta",
-    "localidad": "Bellavista de Conta"
-  }
-}
+
+```
+1. Fork this repository
+Imperative: Fork the main infrastructure repository.
+
+📌 Advice: This creates your own copy where you can safely make changes without affecting the main project.
+
+ 2. Clone your fork locally
+Imperative: Clone your forked repository to your local machine.
+
+git clone https://github.com/your-username/infrastructure-microservice.git
+cd infrastructure-microservice
+
+3. Create a new feature branch
+Imperative: Create a new branch for your change.
+git checkout -b feature/your-feature-name
+
+4. Implement your feature or fix
+Imperative: Add or modify code related to infrastructure logic.
+
+📌 Advice: In this microservice, your work may involve:
+
+Docker and container orchestration setup
+
+Configuration files (application.yml, .env, etc.)
+
+CI/CD pipelines or environment management
+
+Logging, monitoring, or service discovery tools
+
+5. Test and lint your code
+Imperative: Ensure your changes work correctly and follow code standards.
+# Run tests
+./mvnw test
+
+# Apply linter if available
+./mvnw spotless:apply
+📌 Advice: Clean and tested code avoids bugs in other connected services.
 ```
 
-### Colección: facturas
+## 🚀 Deployment Requirements (Must & Need To)
 
-```javascript
-{
-  "_id": ObjectId(),
-  "pago_id": ObjectId(),
-  "usuario_id": ObjectId(),
-  "serie": "F001",
-  "numero": "00001",
-  "fecha_emision": ISODate("2025-03-15"),
-  "monto_total": 10.00,
-  "igv": 1.53,
-  "subtotal": 8.47,
-  "estado": "EMITIDO",
-  "fecha_registro": ISODate("2025-03-15"),
-  "usuario_datos": {
-    "nombre_completo": "María López García",
-    "documento": "45678912",
-    "direccion": "Jr. Las Flores 123, Bellavista de Conta"
-  }
-}
+```
+You must set the environment variables:
+DATABASE_URL=your_postgresql_connection_url
+JWT_SECRET=your_jwt_secret_key
+You need to enable CORS in the Spring configuration for frontend access.
+You must build the frontend before deployment:
+npm run build in /frontend/
+Upload contents of dist/ to your hosting platform.
 ```
 
-### Colección: reclamos
+## 💡 Best Practices & Tips
 
-```javascript
-{
-  "_id": ObjectId(),
-  "usuario_id": ObjectId(),
-  "pago_id": ObjectId(),
-  "tipo_reclamo": "FACTURACION",
-  "descripcion": "Cobro incorrecto en el recibo del mes",
-  "fecha_reclamo": ISODate("2025-03-20"),
-  "estado": "PENDIENTE",
-  "fecha_resolucion": null,
-  "respuesta": "",
-  "usuario_atencion_id": null,
-  "fecha_registro": ISODate("2025-03-20"),
-  "usuario_datos": {
-    "nombre_completo": "María López García",
-    "documento": "45678912",
-    "direccion": "Jr. Las Flores 123, Bellavista de Conta",
-    "telefono": "912345678"
-  }
-}
+```
+You should write unit tests using JUnit and Mockito for your Spring Boot backend.
+
+You should write unit and component tests using Jasmine and Karma for your Angular frontend.
+
+You should run:
+mvn clean verify       # For backend
+ng lint                # For frontend
+
+before each commit to ensure clean and valid code.
 ```
 
-## 5. MS-DISTRIBUCIÓN
+## 📞 Questions & Support 
 
-### Colección: zonas
 
-```javascript
-{
-  "_id": ObjectId(),
-  "nombre": "Bellavista de Conta",
-  "descripcion": "Localidad principal de la sede",
-  "sede_id": ObjectId(),
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01")
-}
+
 ```
+If you need help:
 
-### Colección: calles
+Open an issue in this repository.
 
-```javascript
-{
-  "_id": ObjectId(),
-  "nombre": "Jr. Las Flores",
-  "zona_id": ObjectId(),
-  "zona_nombre": "Bellavista de Conta",
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01")
-}
+Tag @project-lead for urgent or blocking issues.
+
+Join our WhatsApp group for real-time collaboration.
+
+You can also contact us directly via email at frank.salazar@vallegrande.edu.pe.
+
+Thank you for your contributions!
+👍 Let's build something meaningful together.
+  
 ```
-
-### Colección: programacion_distribucion
-
-```javascript
-{
-  "_id": ObjectId(),
-  "calle_id": ObjectId(),
-  "zona_id": ObjectId(),
-  "hora_inicio": "14:00",
-  "hora_fin": "15:00",
-  "es_diario": true,
-  "estado": true,
-  "observaciones": "Distribución diaria regular",
-  "fecha_registro": ISODate("2025-01-15"),
-  "responsable_id": ObjectId(),
-  "calle_nombre": "Jr. Las Flores",
-  "zona_nombre": "Bellavista de Conta"
-}
-```
-
-### Colección: tarifas
-
-```javascript
-{
-  "_id": ObjectId(),
-  "zona_id": ObjectId(),
-  "monto": 10.00,
-  "descripcion": "Tarifa estándar mensual",
-  "tipo_tarifa": "REGULAR",
-  "fecha_inicio_vigencia": ISODate("2025-01-01"),
-  "fecha_fin_vigencia": null,
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01"),
-  "zona_nombre": "Bellavista de Conta"
-}
-```
-
-### Colección: incidencias_distribucion
-
-```javascript
-{
-  "_id": ObjectId(),
-  "tipo_incidencia": "CORTE_TEMPORAL",
-  "descripcion": "Rotura de tubería principal en Jr. Las Flores",
-  "zona_id": ObjectId(),
-  "zona_nombre": "Bellavista de Conta",
-  "calles_afectadas": [
-    {
-      "calle_id": ObjectId(),
-      "calle_nombre": "Jr. Las Flores"
-    }
-  ],
-  "fecha_inicio": ISODate("2025-05-20T08:00:00Z"),
-  "fecha_estimada_solucion": ISODate("2025-05-20T17:00:00Z"),
-  "fecha_solucion_real": null,
-  "estado": "EN_PROCESO",
-  "prioridad": "ALTA",
-  "reportado_por": ObjectId(),
-  "asignado_a": ObjectId(),
-  "materiales_requeridos": [
-    {
-      "nombre": "Tubería PVC 2 pulgadas",
-      "cantidad": 2,
-      "unidad": "metros"
-    },
-    {
-      "nombre": "Pegamento PVC",
-      "cantidad": 1,
-      "unidad": "unidad"
-    }
-  ],
-  "observaciones": "La rotura afecta a 15 familias aproximadamente",
-  "actualizaciones": [
-    {
-      "fecha": ISODate("2025-05-20T10:30:00Z"),
-      "estado": "EN_PROCESO",
-      "descripcion": "Se ha enviado equipo de reparación",
-      "usuario_id": ObjectId()
-    }
-  ],
-  "notificado": true,
-  "fecha_registro": ISODate("2025-05-20T08:15:00Z")
-}
-```
-
-## 6. MS-NOTIFICACIONES
-
-### Colección: notificaciones
-
-```javascript
-{
-  "_id": ObjectId(),
-  "tipo_notificacion": "PAGO_PENDIENTE",
-  "usuario_id": ObjectId(),
-  "titulo": "Recordatorio de pago",
-  "mensaje": "Le recordamos que su pago del mes de Marzo está pendiente",
-  "plantilla_id": ObjectId(),
-  "fecha_envio": ISODate("2025-03-10"),
-  "canal_envio": "SMS",
-  "estado_envio": "ENVIADO",
-  "leido": false,
-  "fecha_lectura": null,
-  "fecha_registro": ISODate("2025-03-10"),
-  "usuario_datos": {
-    "nombre_completo": "María López García",
-    "telefono": "912345678",
-    "email": "maria@example.com"
-  }
-}
-```
-
-### Colección: plantillas
-
-```javascript
-{
-  "_id": ObjectId(),
-  "nombre": "Recordatorio de pago",
-  "codigo": "PAGO_PENDIENTE",
-  "asunto": "Recordatorio de pago mensual",
-  "contenido": "Estimado(a) {{nombre_usuario}}, le recordamos que su pago del mes de {{mes}} por un monto de S/. {{monto}} está pendiente. Fecha límite: {{fecha_limite}}",
-  "tipo_plantilla": "SMS",
-  "variables": ["nombre_usuario", "mes", "monto", "fecha_limite"],
-  "estado": true,
-  "fecha_registro": ISODate("2025-01-01")
-}
-```
-
-## Resumen de colecciones por microservicio
-
-1. **MS-ORGANIZACIONES**
-   - organizaciones
-   - sedes
-
-2. **MS-USUARIOS**
-   - usuarios
-
-3. **MS-CAJAS**
-   - cajas
-   - asignacion_cajas
-
-4. **MS-PAGOS**
-   - pagos
-   - facturas
-   - reclamos
-
-5. **MS-DISTRIBUCIÓN**
-   - zonas
-   - calles
-   - programacion_distribucion
-   - tarifas
-   - incidencias_distribucion
-
-6. **MS-NOTIFICACIONES**
-   - notificaciones
-   - plantillas
-
-## Relaciones entre colecciones
-
-1. **organizaciones → sedes**: Una organización tiene múltiples sedes (relación 1:N)
-
-2. **sedes → usuarios:** Una sede tiene múltiples usuarios (relación 1:N)
-
-3. **usuarios → cajas:** Un usuario puede tener múltiples cajas asignadas (relación N:M)
-
-4. **usuarios → pagos:** Un usuario realiza múltiples pagos (relación 1:N)
-
-5. **pagos → facturas:** Un pago puede generar una factura (relación 1:1)
-
-6. **sedes → zonas:** Una sede tiene múltiples zonas (relación 1:N)
-
-7. **zonas → calles:** Una zona tiene múltiples calles (relación 1:N)
-
-8. **calles → programacion_distribucion:** Una calle puede tener programación de distribución (relación 1:N)
-
-9. **zonas → tarifas:** Una zona tiene una tarifa asociada (relación 1:1)
-
-10. **usuarios → notificaciones:** Un usuario recibe múltiples notificaciones (relación 1:N)
